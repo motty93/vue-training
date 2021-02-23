@@ -24,6 +24,8 @@
       <p>現在{{ number }}回クリックされています</p>
       <button v-on:click="reverseMessage">メッセージ反転</button>
       <button v-on:click="increment">カウントアップ</button>
+      <p v-on:mousemove="changeMousePosition">マウスを乗せて下さい</p>
+      <p>X:{{x}}, Y:{{y}}</p>
     </div>
 
     <script>
@@ -39,6 +41,8 @@
           number: 31,
           attribute: 'href',
           twitterObj: { href: 'https://twitter.com', id: 31 },
+          x: 0,
+          y: 0
         },
         methods: {
           reverseMessage: function () {
@@ -51,6 +55,10 @@
           },
           increment: function () {
             this.number += 1
+          },
+          changeMousePosition: function (event) {
+            this.x = event.clientX
+            this.y = event.clientY
           }
         }
       })
