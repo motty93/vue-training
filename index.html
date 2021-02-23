@@ -14,6 +14,11 @@
       <p v-once>{{ once }}</p>
       <p>{{ once }}</p>
       <p v-html="element" />
+      <p><a v-bind:href="google">Google</a></p>
+      <!-- 動的にbind属性を指定できる -->
+      <p><a :[attribute]="google">Google</a></p>
+      <p><a v-bind="{href: twitter, id: number}">Twitter</a></p>
+      <p><a v-bind="twitterObj">Twitter</a></p>
       <p>{{ ok ? 'YES' : 'NO' }}</p>
       <p>{{ sayHi() }}</p>
       <button v-on:click="reverseMessage">メッセージ反転</button>
@@ -26,7 +31,12 @@
           message: 'HelloWorld',
           ok: true,
           once: 'Hello',
-          element: '<h1>h1です</h1>'
+          element: '<h1>h1です</h1>',
+          google: 'https://google.com',
+          twitter: 'https://twitter.com',
+          number: 31,
+          attribute: 'href',
+          twitterObj: { href: 'https://twitter.com', id: 31 }
         },
         methods: {
           reverseMessage: function () {
