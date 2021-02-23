@@ -24,7 +24,7 @@
       <p>現在{{ number }}回クリックされています</p>
       <button v-on:click="reverseMessage">メッセージ反転</button>
       <button v-on:click="increment">カウントアップ</button>
-      <p v-on:mousemove="changeMousePosition(3, $event)">マウスを乗せて下さい</p>
+      <p v-on:mousemove="changeMousePosition(3, $event)">マウスを乗せて下さい<span v-on:mousemove.stop>反応しないで下さい</span></p>
       <p>X:{{x}}, Y:{{y}}</p>
     </div>
 
@@ -59,6 +59,9 @@
           changeMousePosition: function (divideNumber, event) {
             this.x = event.clientX / divideNumber
             this.y = event.clientY / divideNumber
+          },
+          noEvent: function(e) {
+            e.stopPropagation()
           }
         }
       })
