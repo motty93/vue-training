@@ -21,7 +21,9 @@
       <p><a v-bind="twitterObj">Twitter</a></p>
       <p>{{ ok ? 'YES' : 'NO' }}</p>
       <p>{{ sayHi() }}</p>
+      <p>現在{{ number }}回クリックされています</p>
       <button v-on:click="reverseMessage">メッセージ反転</button>
+      <button v-on:click="increment">カウントアップ</button>
     </div>
 
     <script>
@@ -36,7 +38,7 @@
           twitter: 'https://twitter.com',
           number: 31,
           attribute: 'href',
-          twitterObj: { href: 'https://twitter.com', id: 31 }
+          twitterObj: { href: 'https://twitter.com', id: 31 },
         },
         methods: {
           reverseMessage: function () {
@@ -46,6 +48,9 @@
           sayHi: function () {
             this.once = 'Hell'
             return this.message
+          },
+          increment: function () {
+            this.number += 1
           }
         }
       })
