@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script src="./vue.js"></script>
+
+    <div id="app">
+      <p>{{ message }}</p>
+      <!-- 上と同じ意味 -->
+      <p v-text="message">{{ message }}</p>
+      <p v-once>{{ once }}</p>
+      <p>{{ once }}</p>
+      <p v-html="element" />
+      <p>{{ ok ? 'YES' : 'NO' }}</p>
+      <p>{{ sayHi() }}</p>
+      <button v-on:click="reverseMessage">メッセージ反転</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'HelloWorld',
+          ok: true,
+          once: 'Hello',
+          element: '<h1>h1です</h1>'
+        },
+        methods: {
+          reverseMessage: function () {
+            this.message = this.message.split('').reverse().join('')
+            this.ok = !this.ok
+          },
+          sayHi: function () {
+            this.once = 'Hell'
+            return this.message
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
