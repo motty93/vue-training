@@ -22,13 +22,14 @@
       <p>{{ ok ? 'YES' : 'NO' }}</p>
       <p>{{ sayHi() }}</p>
       <p>現在{{ number }}回クリックされています</p>
-      <button v-on:[event]="reverseMessage">メッセージ反転</button>
-      <button v-on:[event]="increment">カウントアップ</button>
-      <p v-on:mousemove="changeMousePosition(3, $event)">
-        マウスを乗せて下さい<span v-on:mousemove.stop>反応しないで下さい</span>
+      <button @[event]="reverseMessage">メッセージ反転</button>
+      <button @[event]="increment">カウントアップ</button>
+      <p @mousemove="changeMousePosition(3, $event)">
+        マウスを乗せて下さい<span @mousemove.stop>反応しないで下さい</span>
       </p>
       <p>X:{{x}}, Y:{{y}}</p>
-      <input type="text" v-on:keyup.enter="myAlert" />
+      <input type="text" @keyup.enter="myAlert" v-model="inputMsg"/>
+      <h1>{{ inputMsg }}</h1>
     </div>
 
     <script>
@@ -36,6 +37,7 @@
         el: '#app',
         data: {
           message: 'HelloWorld',
+          inputMsg: 'こんにちは',
           ok: true,
           once: 'Hello',
           element: '<h1>h1です</h1>',
