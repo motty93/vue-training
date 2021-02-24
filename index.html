@@ -30,6 +30,12 @@
       <p>X:{{x}}, Y:{{y}}</p>
       <input type="text" @keyup.enter="myAlert" v-model="inputMsg"/>
       <h1>{{ inputMsg }}</h1>
+      <div>
+        <p>{{ counter }}</p>
+        <button @click="counter += 1">+1</button>
+        <button @click="counter -= 1">-1</button>
+        <p>{{ lessThanThree }}</p>
+      </div>
     </div>
 
     <script>
@@ -48,7 +54,13 @@
           twitterObj: { href: 'https://twitter.com', id: 31 },
           x: 0,
           y: 0,
-          event: 'click'
+          event: 'click',
+          counter: 0
+        },
+        computed: {
+          lessThanThree() {
+            return this.counter > 3 ? '3より上' : '3より下'
+          }
         },
         methods: {
           reverseMessage: function () {
