@@ -22,10 +22,13 @@
       <p>{{ ok ? 'YES' : 'NO' }}</p>
       <p>{{ sayHi() }}</p>
       <p>現在{{ number }}回クリックされています</p>
-      <button v-on:click="reverseMessage">メッセージ反転</button>
-      <button v-on:click="increment">カウントアップ</button>
-      <p v-on:mousemove="changeMousePosition(3, $event)">マウスを乗せて下さい<span v-on:mousemove.stop>反応しないで下さい</span></p>
+      <button v-on:[event]="reverseMessage">メッセージ反転</button>
+      <button v-on:[event]="increment">カウントアップ</button>
+      <p v-on:mousemove="changeMousePosition(3, $event)">
+        マウスを乗せて下さい<span v-on:mousemove.stop>反応しないで下さい</span>
+      </p>
       <p>X:{{x}}, Y:{{y}}</p>
+      <input type="text" v-on:keyup.enter="myAlert" />
     </div>
 
     <script>
@@ -42,7 +45,8 @@
           attribute: 'href',
           twitterObj: { href: 'https://twitter.com', id: 31 },
           x: 0,
-          y: 0
+          y: 0,
+          event: 'click'
         },
         methods: {
           reverseMessage: function () {
@@ -60,8 +64,11 @@
             this.x = event.clientX / divideNumber
             this.y = event.clientY / divideNumber
           },
-          noEvent: function(e) {
+          noEvent: function (e) {
             e.stopPropagation()
+          },
+          myAlert() {
+            alert('アラート')
           }
         }
       })

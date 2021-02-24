@@ -23,3 +23,4 @@
 - eventオブジェクトを使用する際、メソッド引数を渡すとeventを取得できる
 - 関数側にeventと他に引数を渡したい場合、`hoge(10, $event)`とするとeventオブジェクトを拾える
 - `preventDefault`と`stopPropagation`は`v-on:click.prevent`・`v-on:click.stop`の形で使用可能(hoge.stop.preventと書くこともできる)
+- prevent, stopと同じようにキー修飾子も使える(`v-on:keyup.enter`)
