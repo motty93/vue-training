@@ -19,6 +19,7 @@
     </div>
 
     <div id="app2"></div>
+    <div id="app3"></div>
 
     <script>
       var data = {
@@ -43,6 +44,15 @@
         },
         template: '<h1>こんにちは、{{name}}</h1>'
       }).$mount('#app2')
+
+      new Vue({
+        data: {
+          name: 'もてぃ'
+        },
+        render: function(createElement) {
+          return createElement('h1', 'こんちわ' + this.name)
+        }
+      }).$mount('#app3')
     </script>
   </body>
 </html>
