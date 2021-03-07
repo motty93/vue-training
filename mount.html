@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>ここにタイトルを入れてね！</title>
+    <meta
+      name="description"
+      content="ここはページの説明を120文字程度でいれます。"
+    />
+  </head>
+  <body>
+    <script src="./vue.js"></script>
+
+    <div id="app">
+      <p>{{message}}</p>
+      <p>{{name}}</p>
+      <p>{{myData}}</p>
+      <button @click="message = 'ボタンから変更'">変更</button>
+    </div>
+
+    <div id="app2"></div>
+
+    <script>
+      var data = {
+        message: '1',
+        name: 'もてぃ'
+      }
+
+      var vm = new Vue({
+        data: data,
+        computed: {
+          myData: function () {
+            return this.$data
+          }
+        }
+      })
+
+      vm.$mount('#app')
+
+      new Vue({
+        data: {
+          name: 'もてぃ'
+        },
+        template: '<h1>こんにちは、{{name}}</h1>'
+      }).$mount('#app2')
+    </script>
+  </body>
+</html>
