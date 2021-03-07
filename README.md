@@ -56,3 +56,8 @@ classをbindして、computedプロパティでクラスをtrue/falseで返す(s
 
 ## styleをバインドするとき
 オブジェクトか配列を使ってスタイルを当てる(style.htmlかstyle_class.htmlを参照)
+
+## templateタグ
+html要素としては表示されないタグ
+
+reactで言えば`<>`みたいな感じ

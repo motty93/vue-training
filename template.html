@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>ここにタイトルを入れてね！</title>
+    <meta
+      name="description"
+      content="ここはページの説明を120文字程度でいれます。"
+    />
+  </head>
+  <body>
+    <script src="./vue.js"></script>
+
+    <div id="app">
+      <template v-if="ok">
+        <p>Hello</p>
+        <p>おはよう</p>
+        <p>Hello</p>
+      </template>
+      <button @click="ok = !ok">change</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          ok: true
+        }
+      })
+    </script>
+  </body>
+</html>
