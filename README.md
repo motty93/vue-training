@@ -50,3 +50,6 @@ computedは基本的に同期処理なので、こっちは非同期処理を行
 
 ## html classを動的につける
 classをbindして、computedプロパティでクラスをtrue/falseで返す(style_class.html参照)
+
+## styleをバインドするとき
+オブジェクトか配列を使ってスタイルを当てる(style.htmlかstyle_class.htmlを参照)

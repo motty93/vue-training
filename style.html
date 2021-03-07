@@ -14,7 +14,7 @@
 
     <div id="app">
       <!-- <h1 :style="{ color: textColor, 'background&#45;color': bgColor }">Style</h1> -->
-      <h1 :style="styleObject">Style</h1>
+      <h1 :style="[styleObject, baseObject]">Style</h1>
     </div>
 
     <script>
@@ -24,6 +24,9 @@
           styleObject: {
             color: 'red',
             backgroundColor: 'blue'
+          },
+          baseObject: {
+            fontSize: '200px'
           }
         }
       })
