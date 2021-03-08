@@ -1,7 +1,9 @@
 <template>
   <div>
     <LikeHeader />
-    <LikeNumber />
+    <p>{{ number }}</p>
+    <LikeNumber :totalNumber="number"/>
+    <LikeNumber total-number="6" />
   </div>
 </template>
 
@@ -10,6 +12,11 @@
 import LikeHeader from './components/LikeHeader'
 
 export default {
+  data() {
+    return {
+      number: 10
+    }
+  },
   components: {
     LikeHeader
   }
