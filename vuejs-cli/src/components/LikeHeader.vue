@@ -1,3 +1,13 @@
 <template>
-  <h1>トータルの良いね数</h1>
+  <div>
+    <slot></slot>
+  </div>
 </template>
+
+<script>
+export default {
+  props: ["headerText"],
+  data() {
+  }
+}
+</script>
