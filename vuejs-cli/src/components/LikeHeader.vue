@@ -1,8 +1,10 @@
 <template>
   <div>
-    <slot>
+    <slot name="title">
       <h2>親で何も指定してなければこれが表示される</h2>
     </slot>
+    <hr>
+    <slot name="number"></slot>
     <p>{{ headerText }}</p>
   </div>
 </template>
