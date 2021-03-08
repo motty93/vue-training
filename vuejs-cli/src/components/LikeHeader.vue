@@ -2,18 +2,24 @@
   <div>
     <!-- default slot -->
     <slot></slot>
-    <slot name="title">
+    <slot name="title" :user="user" text="これがtextですよぉ">
       <h2>親で何も指定してなければこれが表示される</h2>
     </slot>
     <hr>
     <slot name="number"></slot>
-    <p>{{ headerText }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["headerText"],
+  data() {
+    return {
+      user: {
+        firstName: 'first',
+        lastName: 'last'
+      }
+    }
+  }
 }
 </script>
 
