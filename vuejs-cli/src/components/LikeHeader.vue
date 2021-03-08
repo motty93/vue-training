@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- default slot -->
+    <slot></slot>
     <slot name="title">
       <h2>親で何も指定してなければこれが表示される</h2>
     </slot>
