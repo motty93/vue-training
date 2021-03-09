@@ -20,12 +20,17 @@
     </LikeHeader>
     <LikeNumber :total-number="number" @my-click="incrementNumber" />
     <LikeNumber :total-number="number" testProps="test" />
+    <button @click="currentComponent = 'Home'">Home</button>
+    <button @click="currentComponent = 'About'">About</button>
+    <component :is="currentComponent"></component>
   </div>
 </template>
 
 <script>
 // ローカル登録
 import LikeHeader from './components/LikeHeader'
+import About from './components/About'
+import Home from './components/Home'
 
 export default {
   data() {
@@ -33,10 +38,13 @@ export default {
       number: 10,
       title: 'title',
       title2: 'title2',
+      currentComponent: 'Home'
     }
   },
   components: {
-    LikeHeader
+    LikeHeader,
+    Home,
+    About
   },
   methods: {
     incrementNumber(value) {
