@@ -67,7 +67,14 @@
       <label for="free">無料</label>
       <input type="radio" id="paid" value="有料" v-model="eventData.price" />
       <label for="paid">有料</label>
-      <p>{{eventData.price}}</p>
+      <p>{{ eventData.price }}</p>
+      <p>開催場所</p>
+      <select v-model="eventData.location">
+        <option v-for="location in locations" :key="location">{{
+          location
+        }}</option>
+      </select>
+      <p>{{eventData.location}}</p>
     </div>
   </div>
 </template>
@@ -85,6 +92,7 @@ export default {
       title: 'title',
       title2: 'title2',
       currentComponent: 'Home',
+      locations: ['東京', '大阪', '名古屋'],
       eventData: {
         title: '',
         maxNum: 100,
@@ -92,7 +100,8 @@ export default {
         detail: '',
         isPrivate: false,
         target: [],
-        price: '無料'
+        price: '無料',
+        location: '東京'
       }
     }
   },
