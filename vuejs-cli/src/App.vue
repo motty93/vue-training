@@ -42,6 +42,9 @@
       <pre>{{eventData.title}}</pre>
       <pre>{{eventData.maxNum}}</pre>
       <pre>{{eventData.host}}</pre>
+      <label for="detail">イベントの内容</label>
+      <textarea id="detail" name="detail" cols="30" rows="10" v-model="eventData.detail"></textarea>
+      <pre>{{eventData.detail}}</pre>
     </div>
   </div>
 </template>
@@ -60,9 +63,10 @@ export default {
       title2: 'title2',
       currentComponent: 'Home',
       eventData: {
-        title: 'タイトル',
+        title: '',
         maxNum: 100,
-        host: 'test'
+        host: '',
+        detail: ''
       }
     }
   },
