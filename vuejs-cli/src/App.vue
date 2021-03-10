@@ -35,8 +35,13 @@
         <label for="maxNum">最大人数</label>
         <input type="number" id="maxNum" v-model.number="eventData.maxNum">
       </p>
-      <p>{{eventData.title}}</p>
-      <p>{{eventData.maxNum}}</p>
+      <p>
+        <label for="host">主催者</label>
+        <input type="text" id="host" v-model.trim="eventData.host">
+      </p>
+      <pre>{{eventData.title}}</pre>
+      <pre>{{eventData.maxNum}}</pre>
+      <pre>{{eventData.host}}</pre>
     </div>
   </div>
 </template>
@@ -56,7 +61,8 @@ export default {
       currentComponent: 'Home',
       eventData: {
         title: 'タイトル',
-        maxNum: 100
+        maxNum: 100,
+        host: 'test'
       }
     }
   },
