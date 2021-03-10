@@ -22,7 +22,9 @@
     <LikeNumber :total-number="number" testProps="test" />
     <button @click="currentComponent = 'Home'">Home</button>
     <button @click="currentComponent = 'About'">About</button>
-    <component :is="currentComponent"></component>
+    <keep-alive>
+      <component :is="currentComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
