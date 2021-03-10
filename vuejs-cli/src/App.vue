@@ -29,25 +29,39 @@
       <h2>イベントのフォーム</h2>
       <p>
         <label for="title">タイトル</label>
-        <input type="text" id="title" v-model.lazy="eventData.title">
+        <input type="text" id="title" v-model.lazy="eventData.title" />
       </p>
       <p>
         <label for="maxNum">最大人数</label>
-        <input type="number" id="maxNum" v-model.number="eventData.maxNum">
+        <input type="number" id="maxNum" v-model.number="eventData.maxNum" />
       </p>
       <p>
         <label for="host">主催者</label>
-        <input type="text" id="host" v-model.trim="eventData.host">
+        <input type="text" id="host" v-model.trim="eventData.host" />
       </p>
-      <pre>{{eventData.title}}</pre>
-      <pre>{{eventData.maxNum}}</pre>
-      <pre>{{eventData.host}}</pre>
+      <pre>{{ eventData.title }}</pre>
+      <pre>{{ eventData.maxNum }}</pre>
+      <pre>{{ eventData.host }}</pre>
       <label for="detail">イベントの内容</label>
-      <textarea id="detail" name="detail" cols="30" rows="10" v-model="eventData.detail"></textarea>
-      <pre>{{eventData.detail}}</pre>
-      <input type="checkbox" id="isPrivate" v-model="eventData.isPrivate">
+      <textarea
+        id="detail"
+        name="detail"
+        cols="30"
+        rows="10"
+        v-model="eventData.detail"
+      ></textarea>
+      <pre>{{ eventData.detail }}</pre>
+      <input type="checkbox" id="isPrivate" v-model="eventData.isPrivate" />
       <label for="isPrivate">非公開</label>
-      <p>{{eventData.isPrivate}}</p>
+      <p>{{ eventData.isPrivate }}</p>
+      <p>参加条件</p>
+      <input type="checkbox" id="10" value="10代" v-model="eventData.target" />
+      <label for="10"></label>
+      <input type="checkbox" id="20" value="20代" v-model="eventData.target" />
+      <label for="20"></label>
+      <input type="checkbox" id="30" value="30代" v-model="eventData.target" />
+      <label for="30"></label>
+      <p>{{ eventData.target }}</p>
     </div>
   </div>
 </template>
@@ -70,7 +84,8 @@ export default {
         maxNum: 100,
         host: '',
         detail: '',
-        isPrivate: false
+        isPrivate: false,
+        target: []
       }
     }
   },
