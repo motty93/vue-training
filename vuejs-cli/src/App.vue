@@ -27,9 +27,16 @@
     </keep-alive>
     <div>
       <h2>イベントのフォーム</h2>
-      <label for="title">タイトル</label>
-      <input type="text" id="title" v-model.lazy="eventData.title">
+      <p>
+        <label for="title">タイトル</label>
+        <input type="text" id="title" v-model.lazy="eventData.title">
+      </p>
+      <p>
+        <label for="maxNum">最大人数</label>
+        <input type="number" id="maxNum" v-model.number="eventData.maxNum">
+      </p>
       <p>{{eventData.title}}</p>
+      <p>{{eventData.maxNum}}</p>
     </div>
   </div>
 </template>
@@ -48,7 +55,8 @@ export default {
       title2: 'title2',
       currentComponent: 'Home',
       eventData: {
-        title: 'タイトル'
+        title: 'タイトル',
+        maxNum: 100
       }
     }
   },
