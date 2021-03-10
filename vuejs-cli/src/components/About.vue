@@ -9,6 +9,12 @@
 export default {
   destroyed() {
     console.log('destroy')
+  },
+  deactivated() {
+    console.log('deactivated')
+  },
+  activated() {
+    console.log('activated')
   }
 }
 </script>
