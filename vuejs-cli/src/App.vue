@@ -69,12 +69,15 @@
       <label for="paid">有料</label>
       <p>{{ eventData.price }}</p>
       <p>開催場所</p>
-      <select v-model="eventData.location">
+      <select v-model="eventData.location" multiple>
         <option v-for="location in locations" :key="location">{{
           location
         }}</option>
       </select>
       <p>{{eventData.location}}</p>
+    </div>
+    <div>
+      <Vmodel />
     </div>
   </div>
 </template>
@@ -84,6 +87,7 @@
 import LikeHeader from './components/LikeHeader'
 import About from './components/About'
 import Home from './components/Home'
+import Vmodel from './components/Vmodel'
 
 export default {
   data() {
@@ -101,14 +105,16 @@ export default {
         isPrivate: false,
         target: [],
         price: '無料',
-        location: '東京'
+        // location: '東京'
+        location: []
       }
     }
   },
   components: {
     LikeHeader,
     Home,
-    About
+    About,
+    Vmodel
   },
   methods: {
     incrementNumber(value) {
