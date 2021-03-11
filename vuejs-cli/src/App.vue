@@ -27,6 +27,8 @@
     </keep-alive>
     <div>
       <h2>イベントのフォーム</h2>
+      <!-- コンポーネントでv-modelを使用する方法 -->
+      <EventTitle v-model="eventData.title"></EventTitle>
       <p>
         <label for="title">タイトル</label>
         <input type="text" id="title" v-model.lazy="eventData.title" />
@@ -88,6 +90,7 @@ import LikeHeader from './components/LikeHeader'
 import About from './components/About'
 import Home from './components/Home'
 import Vmodel from './components/Vmodel'
+import EventTitle from './components/EventTitle'
 
 export default {
   data() {
@@ -114,7 +117,8 @@ export default {
     LikeHeader,
     Home,
     About,
-    Vmodel
+    Vmodel,
+    EventTitle
   },
   methods: {
     incrementNumber(value) {
