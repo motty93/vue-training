@@ -1,9 +1,19 @@
 <template>
-  <h2 v-border:solid.shadow.round="{width: '10px', color: 'red'}">Home</h2>
+  <div>
+    <p v-border:solid.shadow.round="{width: '10px', color: 'red'}">Home</p>
+    <h2>{{ title | upperCase }}</h2>
+    <p>{{ subTitle | upperCase }}</p>
+  </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      title: 'Welcome',
+      subTitle: 'Sub Welcome'
+    }
+  },
   // ローカルでのカスタムディレクティブ
   // thisは使えない
   directives: {
