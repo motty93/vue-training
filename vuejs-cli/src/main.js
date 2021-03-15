@@ -25,9 +25,9 @@ Vue.component('LikeNumber', LikeNumber)
 
 // この形はbindとupdateが実行される
 Vue.directive('border', function(el, binding) {
-  el.style.border = 'solid black 2px'
   el.style.borderWidth = binding.value.width
   el.style.borderColor = binding.value.color
+  el.style.borderStyle = binding.arg
 })
 
 new Vue({
