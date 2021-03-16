@@ -9,6 +9,11 @@
 import { tokyoNumber } from '@/tokyoNumber'
 
 export default {
-  mixins: [tokyoNumber]
+  mixins: [tokyoNumber],
+  // ライフサイクルフックに関してはマージされる、どちらも実行される
+  // 先にmixinが実行され、あとでcomponent側が実行される
+  created() {
+    console.log('create in component')
+  }
 }
 </script>

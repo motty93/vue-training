@@ -12,6 +12,7 @@ import CountNumber from './CountNumber'
 import { tokyoNumber } from '@/tokyoNumber'
 
 export default {
+  // 内容が被った場合、コンポーネントの値が優先される
   mixins: [tokyoNumber],
   components: {
     CountNumber
