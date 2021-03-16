@@ -13,6 +13,13 @@
 
 <script>
 export default {
+  data() {
+    return {
+      eventData: {
+        title: 'test'
+      }
+    }
+  },
   props: ["value"]
 }
 </script>
