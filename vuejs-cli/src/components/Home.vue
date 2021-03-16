@@ -14,6 +14,7 @@ export default {
       subTitle: 'Sub Welcome'
     }
   },
+  // もちろんthisにはアクセスできない
   filters: {
     lowerCase(value) {
       return value.toLowerCase()
