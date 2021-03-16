@@ -5,8 +5,14 @@ import LikeNumber from './components/LikeNumber'
 Vue.config.productionTip = false
 // グローバル登録
 Vue.component('LikeNumber', LikeNumber)
-Vue.filter("upperCase", function(value) {
+Vue.filter('upperCase', function(value) {
   return value.toUpperCase()
+})
+// すべてのVueインスタンにマージされてしまうので使い方要注意
+Vue.mixin({
+  created() {
+    console.log('global mixin')
+  }
 })
 // Vue.directive('border', {
 //   bind(el, binding, vnode) {
@@ -28,16 +34,16 @@ Vue.filter("upperCase", function(value) {
 
 // この形はbindとupdateが実行される
 // Vue.directive('border', function(el, binding) {
-  // el.style.borderWidth = binding.value.width
-  // el.style.borderColor = binding.value.color
-  // el.style.borderStyle = binding.arg
-  // // binding.modifiers.roundはtrue or falseを返す
-  // if (binding.modifiers.round) {
-  //   el.style.borderRadius = '0.5rem'
-  // }
-  // if (binding.modifiers.shadow) {
-  //   el.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.26)'
-  // }
+// el.style.borderWidth = binding.value.width
+// el.style.borderColor = binding.value.color
+// el.style.borderStyle = binding.arg
+// // binding.modifiers.roundはtrue or falseを返す
+// if (binding.modifiers.round) {
+//   el.style.borderRadius = '0.5rem'
+// }
+// if (binding.modifiers.shadow) {
+//   el.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.26)'
+// }
 // })
 
 new Vue({
