@@ -3,23 +3,18 @@
     <p v-border:solid.shadow.round="{ width: '10px', color: 'red' }">Home</p>
     <h2>{{ title | lowerCase | upperCase }}</h2>
     <p>{{ subTitle | lowerCase }}</p>
+    <CountNumber />
   </div>
 </template>
 
 <script>
+import CountNumber from './CountNumber'
+import { tokyoNumber } from '@/tokyoNumber'
+
 export default {
-  data() {
-    return {
-      title: 'Welcome',
-      subTitle: 'Sub Welcome'
-    }
-  },
-  // もちろんthisにはアクセスできない
-  // methodと同じくコンポーネントが再描画されたときに実行されるので頻繁に変わるものに対しては使わないようにする
-  filters: {
-    lowerCase(value) {
-      return value.toLowerCase()
-    }
+  mixins: [tokyoNumber],
+  components: {
+    CountNumber
   },
   // ローカルでのカスタムディレクティブ
   // thisは使えない
