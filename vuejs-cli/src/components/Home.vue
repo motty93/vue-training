@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p v-border:solid.shadow.round="{width: '10px', color: 'red'}">Home</p>
-    <h2>{{ title | upperCase }}</h2>
-    <p>{{ subTitle | upperCase }}</p>
+    <p v-border:solid.shadow.round="{ width: '10px', color: 'red' }">Home</p>
+    <h2>{{ title | lowerCase | upperCase }}</h2>
+    <p>{{ subTitle | lowerCase }}</p>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
     return {
       title: 'Welcome',
       subTitle: 'Sub Welcome'
+    }
+  },
+  filters: {
+    lowerCase(value) {
+      return value.toLowerCase()
     }
   },
   // ローカルでのカスタムディレクティブ
@@ -29,7 +34,6 @@ export default {
         el.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.26)'
       }
     }
-
   }
 }
 </script>
