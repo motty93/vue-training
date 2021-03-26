@@ -2,10 +2,12 @@
   <div class="main">
     <button @click="show = !show">切り替え</button>
     <!-- typeでanimationを指定するとanimationを優先する -->
-    <transition name="slide" type="animation">
+    <transition name="slide" type="animation" appear>
       <p v-if="show">slide animationだよ</p>
     </transition>
-    <transition name="fade">
+    <transition name="fade"
+                enter-active-class="animate__animated animate__bounce"
+    >
       <p v-if="show">hello</p>
     </transition>
   </div>
