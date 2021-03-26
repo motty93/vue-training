@@ -1,7 +1,8 @@
 <template>
   <div class="main">
     <button @click="show = !show">切り替え</button>
-    <transition name="slide">
+    <!-- typeでanimationを指定するとanimationを優先する -->
+    <transition name="slide" type="animation">
       <p v-if="show">slide animationだよ</p>
     </transition>
     <transition name="fade">
@@ -42,11 +43,18 @@ export default {
 .fade-leave-to {
   /* 消える時の最後の状態 */
 }
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+}
 .slide-enter-active {
   animation: slide-in 0.5s;
+  transition: opacity 0.5s;
 }
 .slide-leave-active {
   animation: slide-in 0.5s reverse;
+  transition: opacity 0.5s;
 }
 
 @keyframes slide-in {
