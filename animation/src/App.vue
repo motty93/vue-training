@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <button @click="show = !show">切り替え</button>
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <p v-if="show" key="bye">さよなら</p>
       <p v-else key="hello">こんにちは</p>
     </transition>
