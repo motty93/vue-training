@@ -1,6 +1,10 @@
 <template>
   <div class="main">
     <button @click="show = !show">切り替え</button>
+    <transition name="fade">
+      <p v-if="show" key="bye">さよなら</p>
+      <p v-else key="hello">こんにちは</p>
+    </transition>
     <!-- typeでanimationを指定するとanimationを優先する -->
     <transition name="slide" type="animation" appear>
       <p v-if="show">slide animationだよ</p>
@@ -17,7 +21,7 @@
 export default {
   data() {
     return {
-      show: true
+      show: false
     }
   }
 }
