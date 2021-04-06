@@ -59,6 +59,7 @@ export default {
       //現れる前
     },
     enter(el, done) {
+      // CSSを使うときは必ずdoneをつける
       // 現れるとき
     },
     afterEnter(el) {
