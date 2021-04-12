@@ -3,13 +3,15 @@
     <button @click="show = !show">切り替え</button>
     <br />
     <br />
+    <!-- :css="false"とするとcssでのアニメーションを無くす-->
     <transition
+      :css="false"
       @before-enter="beforeEnter"
       @enter="enter"
       @after-enter="afterEnter"
       @enter-cancelled="entereCancelled"
       @before-leave="beforeLeave"
-      @leave="Leave"
+      @leave="leave"
       @after-leave="afterLeave"
       @leave-cancelled="leaveCancelled"
     >
@@ -57,27 +59,35 @@ export default {
   methods: {
     beforeEnter(el) {
       //現れる前
+      el.style.transform = 'scale(0)'
     },
     enter(el, done) {
       // CSSを使うときは必ずdoneをつける
       // 現れるとき
-    },
-    afterEnter(el) {
-      // 現れたあと
-    },
-    enterCancelled(el) {
-      // 現れるアニメーションがキャンセルされた時
-    },
-    beforeLeave(el) {
-      // 消える前
+      let scale = 0
+      const interval = setInterval(() => {
+        el.style.transform = `scale(${scale})`
+        scale += 0.01
+        if (scale > 1) {
+          clearInterval(interval)
+          done()
+        }
+      }, 5)
     },
     leave(el, done) {
       // 消える時
-    },
-    afterLeave(el) {
-      // 消えた時
+      let scale = 1
+      const interval = setInterval(() => {
+        el.style.transform = `scale(${scale})`
+        scale -= 0.01
+        if (scale < 0) {
+          clearInterval(interval)
+          done()
+        }
+      }, 5)
     },
     leaveCancelled(el) {
+      console.log(el)
       // 消えるアニメーションがキャンセルされた時
       // v-showのときに実行される
     }
