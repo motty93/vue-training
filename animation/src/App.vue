@@ -18,6 +18,22 @@
       <div class="circle" v-if="show"></div>
     </transition>
     <br />
+    <button @click="add()">追加</button>
+    <ul style="width: 200px; margin: auto;">
+      <!-- transition-groupはspan tagに変換される -->
+      <!-- transition v-moveクラスが存在する -->
+      <transition-group name="fade">
+        <li
+          style="cursor: pointer;"
+          v-for="(number, index) in numbers"
+          :key="index"
+          @click="remove(index)"
+        >
+          {{ number }}
+        </li>
+      </transition-group>
+    </ul>
+    <br />
     <button @click="myComponent = 'ComponentA'">ComponentA</button>
     <button @click="myComponent = 'ComponentB'">ComponentB</button>
     <transition name="fade" mode="out-in">
@@ -51,12 +67,24 @@ export default {
   },
   data() {
     return {
+      numbers: [1, 2, 3],
+      nextNumber: 3,
       show: true,
       myAnimation: 'slide',
       myComponent: 'ComponentA'
     }
   },
   methods: {
+    randomIndex() {
+      return Math.floor(Math.random() * this.numbers.length)
+    },
+    add() {
+      this.numbers.splice(this.randomIndex(), 0, this.nextNumber)
+      this.nextNumber += 1
+    },
+    remove(index) {
+      this.numbers.splice(index, 1)
+    },
     beforeEnter(el) {
       //現れる前
       el.style.transform = 'scale(0)'
@@ -104,6 +132,9 @@ export default {
   background-color: deeppink;
 }
 
+.fade-move {
+  transition: transform 1s;
+}
 .fade-enter {
   /* 現れる時の最初の状態 */
   opacity: 0;
